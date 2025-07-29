@@ -10,7 +10,7 @@ app = FastAPI()
 # CORS settings
 app.add_middleware(
     CORSMiddleware,
-    allow_origins=["*"],  # Boleh disesuaikan saat produksi
+    allow_origins=["https://nops46.github.io"],  # Boleh disesuaikan saat produksi
     allow_credentials=True,
     allow_methods=["*"],
     allow_headers=["*"],
