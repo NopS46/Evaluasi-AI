@@ -7,7 +7,8 @@ let students = [];
 
 async function ambilDataDariAPI() {
     try {
-        const res = await fetch("http://127.0.0.1:8000/siswa");
+        const res = await fetch("https://web-production-b99ef.up.railway.app
+/siswa");
         if (!res.ok) {
             throw new Error(`HTTP error! Status: ${res.status}`);
         }
