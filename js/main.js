@@ -527,7 +527,7 @@ document.addEventListener('DOMContentLoaded', function() {
           };
       
           try {
-            const response = await fetch("http://127.0.0.1:8000/prediksi", {
+            const response = await fetch("https://web-production-b99ef.up.railway.app/manual", {
               method: "POST",
               headers: {
                 "Content-Type": "application/json"
