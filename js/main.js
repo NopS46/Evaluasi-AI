@@ -506,7 +506,6 @@ document.addEventListener('DOMContentLoaded', function() {
     // Check if user was previously logged in
     authManager.checkSession();
     
-    ambilDataDariAPI();
 
     document.addEventListener("DOMContentLoaded", () => {
         ambilDataDariAPI();
