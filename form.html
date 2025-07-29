@@ -502,7 +502,7 @@
             console.log("Data dikirim:", data);
         
             try {
-                const response = await fetch("https://web-production-b99ef.up.railway.app/form", {
+                const response = await fetch("https://web-production-b99ef.up.railway.app/form"), {
                     method: "POST",
                     headers: { "Content-Type": "application/json" },
                     body: JSON.stringify(data)
