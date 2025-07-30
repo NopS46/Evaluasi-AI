@@ -47,6 +47,7 @@ const authManager = {
         if (username === 'guru' && password === 'admin123') {
             document.getElementById('loginSection').style.display = 'none';
             document.getElementById('dashboard').style.display = 'grid';
+            ambilDataDariAPI();
             mainDashboard.updateStatistics();
             mainDashboard.initChart();
             this.saveSession();
