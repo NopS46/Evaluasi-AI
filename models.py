@@ -1,48 +1,30 @@
-
-# Model lengkap untuk data Google Form asli
 from pydantic import BaseModel
-from typing import List, Optional
+from typing import Optional
+from sqlalchemy import Column, Integer, String, Float, DateTime
+from sqlalchemy.ext.declarative import declarative_base
 
-class SiswaFormModel(BaseModel):
-    # Data siswa
-    nama: str
-    kelas: str
-    email: str
+Base = declarative_base()
 
-    # Evaluasi Kompleksitas Proyek
-    kesulitan_straight: int
-    kesulitan_cross: int
-    jumlah_percobaan: str
+# Model untuk SQLite
+class Siswa(Base):
+    __tablename__ = "siswa"
 
-    # Inovasi dan Kreativitas
-    metode_khusus: str
-    kreativitas_solusi: int
-    elemen_kreatif: Optional[List[str]] = []
+    id = Column(Integer, primary_key=True, index=True)
+    name = Column(String)
+    projectComplexity = Column(Integer)
+    solutionInnovation = Column(Integer)
+    implementationQuality = Column(Integer)
+    debuggingAbility = Column(Integer)
+    presentationScore = Column(Integer)
+    creativity = Column(Float)
+    problemSolving = Column(Float)
+    timestamp = Column(String)
+    source = Column(String)
 
-    # Kualitas Implementasi
-    kualitas_kabel: str
-    kerapian: int
-    uji_koneksi: str
-
-    # Problem Solving
-    strategi_masalah: str
-    pendekatan_sistematis: int
-    waktu_debugging: str
-
-    # Presentasi & Dokumentasi
-    kemampuan_menjelaskan: int
-    dokumentasi: Optional[List[str]] = []
-
-    # Refleksi
-    kesulitan_terbesar: Optional[str] = ""
-    pembelajaran: Optional[str] = ""
-    saran: Optional[str] = ""
-
-# Model untuk input manual dari dashboard
+# Model untuk input manual (dari user)
 class SiswaManualModel(BaseModel):
-    projectComplexity: float
-    solutionInnovation: float
-    implementationQuality: float
-    debuggingAbility: float
-    presentationScore: float
-
+    projectComplexity: int
+    solutionInnovation: int
+    implementationQuality: int
+    debuggingAbility: int
+    presentationScore: int
