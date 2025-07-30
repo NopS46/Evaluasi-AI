@@ -13,16 +13,18 @@ async function ambilDataDariAPI() {
         }
 
         students = await res.json();
-        console.log("📦 Data dari API:", students);// ✅ FIXED
+        console.log("📦 Data dari API:", students);
 
         if (students.length === 0) {
             console.warn("❗ Data kosong dari API");
+        }
 
-        // Update semua bagian UI
+        // ✅ Selalu update tampilan, meskipun data kosong
         mainDashboard.updateStudentList();
         mainDashboard.updateStudentSelect();
         mainDashboard.updateStatistics();
         mainDashboard.updateChart();
+
     } catch (e) {
         console.error("❌ Gagal mengambil data siswa dari API:", e);
     }
