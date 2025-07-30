@@ -6,7 +6,7 @@ from sqlalchemy.ext.declarative import declarative_base
 Base = declarative_base()
 
 # Model untuk SQLite
-class Siswa(Base):
+class SiswaFormModel(Base):
     __tablename__ = "siswa"
 
     id = Column(Integer, primary_key=True, index=True)
