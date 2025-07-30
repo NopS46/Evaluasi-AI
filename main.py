@@ -29,7 +29,7 @@ def get_db():
 app.add_middleware(
     CORSMiddleware,
     allow_origins=["*"],  # Boleh disesuaikan saat produksi
-    allow_credentials=False,
+    allow_credentials=True,
     allow_methods=["*"],
     allow_headers=["*"],
 )
