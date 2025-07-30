@@ -4,6 +4,9 @@ from models import SiswaFormModel, SiswaManualModel
 from typing import List
 from datetime import datetime
 import joblib
+import json
+import os
+
 
 app = FastAPI()
 
@@ -16,8 +19,10 @@ app.add_middleware(
     allow_headers=["*"],
 )
 
-# Simpan data siswa global sementara
-database: List[dict] = []
+# Simpan data
+# Muat data dari file
+database: List[dict] = load_data_from_file()
+
 
 # Load model
 model_creativity = joblib.load("model_creativity.pkl")
@@ -68,6 +73,7 @@ async def submit_form(data: SiswaFormModel):
     }
 
     database.append(entry)
+    save_data_to_file(database)
     return entry
 
 # Endpoint untuk input manual dari dashboard
@@ -96,9 +102,27 @@ async def submit_manual(data: SiswaManualModel):
     }
 
     database.append(entry)
+    save_data_to_file(database)
     return entry
 
 # Endpoint untuk melihat semua data siswa
 @app.get("/siswa")
 async def get_all_data():
     return database
+
+# Lokasi file database
+DATABASE_FILE = "database.json"
+
+def load_data_from_file():
+    if os.path.exists(DATABASE_FILE):
+        with open(DATABASE_FILE, "r") as f:
+            try:
+                return json.load(f)
+            except json.JSONDecodeError:
+                return []
+    return []
+
+def save_data_to_file(data):
+    with open(DATABASE_FILE, "w") as f:
+        json.dump(data, f, indent=4)
+
