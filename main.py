@@ -1,6 +1,6 @@
 from fastapi import FastAPI
 from fastapi.middleware.cors import CORSMiddleware
-from models import SiswaFormModel, SiswaManualModel
+from schemas import SiswaFormModel, SiswaManualModel
 from typing import List
 from datetime import datetime
 from sqlalchemy.orm import Session
