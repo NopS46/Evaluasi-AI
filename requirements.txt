@@ -6,3 +6,5 @@ joblib
 pydantic
 aiofiles
 python-multipart
+aiosqlite
+
