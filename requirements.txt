@@ -1,7 +1,8 @@
 fastapi
-uvicorn
-scikit-learn
-pydantic
-python-multipart
-joblib
+uvicorn[standard]
+databases
 sqlalchemy
+joblib
+pydantic
+aiofiles
+python-multipart
