@@ -1,7 +1,7 @@
 from fastapi import FastAPI
 from fastapi.middleware.cors import CORSMiddleware
-from backend.models import SiswaFormModel, SiswaManualModel, siswa_table, metadata
-from backend.db_conf import database, engine
+from models import SiswaFormModel, SiswaManualModel, siswa_table, metadata
+from db_conf import database, engine
 from datetime import datetime
 import joblib
 from fastapi.responses import JSONResponse

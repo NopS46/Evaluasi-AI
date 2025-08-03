@@ -7,4 +7,5 @@ pydantic
 aiofiles
 python-multipart
 aiosqlite
+scikit-learn==1.3.0
 

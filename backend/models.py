@@ -3,7 +3,7 @@
 from pydantic import BaseModel
 from typing import List, Optional
 from sqlalchemy import Table, Column, Integer, String, JSON
-from backend.db_conf import metadata
+from db_conf import metadata
 
 
 class SiswaFormModel(BaseModel):
