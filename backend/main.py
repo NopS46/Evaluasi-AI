@@ -115,8 +115,6 @@ async def get_siswa():
     results = await database.fetch_all(query)
     return results
 
-    from fastapi.responses import JSONResponse
-
 @app.delete("/siswa/reset")
 async def reset_data():
     query = siswa_table.delete()
