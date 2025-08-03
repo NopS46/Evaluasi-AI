@@ -5,6 +5,7 @@ from backend.db_conf import database, engine
 from datetime import datetime
 import joblib
 from fastapi.responses import JSONResponse
+import os
 
 
 metadata.create_all(bind=engine)
@@ -29,8 +30,12 @@ async def shutdown():
     await database.disconnect()
 
 # Load model
-model_creativity = joblib.load("model_creativity.pkl")
-model_problemsolving = joblib.load("model_problemsolving.pkl")
+
+BASE_DIR = os.path.dirname(os.path.abspath(__file__))
+
+model_creativity = joblib.load(os.path.join(BASE_DIR, "model_creativity.pkl"))
+model_problemsolving = joblib.load(os.path.join(BASE_DIR, "model_problemsolving.pkl"))
+
 
 @app.post("/form")
 async def submit_form(data: SiswaFormModel):
