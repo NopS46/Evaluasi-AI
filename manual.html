@@ -504,7 +504,7 @@
 
 document.addEventListener("DOMContentLoaded", async () => {
     try {
-        const res = await fetch("http://127.0.0.1:8000/siswa");
+        const res = await fetch("https://evaluasi-ai-production.up.railway.app/siswa");
         const result = await res.json();
 
         studentsData = result.map((item, idx) => ({
