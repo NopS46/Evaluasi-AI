@@ -738,7 +738,7 @@ document.addEventListener("DOMContentLoaded", async () => {
         }
 
         // Kirim manual ke backend jika ingin
-        const response = await fetch("http://127.0.0.1:8000/siswa", {
+        const response = await fetch("https://evaluasi-ai-production.up.railway.app/siswa", {
             method: "POST",
             headers: { "Content-Type": "application/json" },
             body: JSON.stringify({
