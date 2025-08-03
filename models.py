@@ -6,20 +6,18 @@ from sqlalchemy.ext.declarative import declarative_base
 Base = declarative_base()
 
 # Model untuk SQLite
-class SiswaFormModel(BaseModel):
-    __tablename__ = "siswa"
+class SiswaDB(Base):
+    __tablename__ = 'siswa'
 
     id = Column(Integer, primary_key=True, index=True)
-    name = Column(String)
-    projectComplexity = Column(Integer)
-    solutionInnovation = Column(Integer)
-    implementationQuality = Column(Integer)
-    debuggingAbility = Column(Integer)
-    presentationScore = Column(Integer)
-    creativity = Column(Float)
-    problemSolving = Column(Float)
-    timestamp = Column(String)
-    source = Column(String)
+    nama = Column(String)
+    kelas = Column(String)
+    email = Column(String)
+    kesulitan_straight = Column(Integer)
+    kesulitan_cross = Column(Integer)
+    kreativitas_solusi = Column(Integer)
+    kerapian = Column(Integer)
+    pendekatan_sistematis = Column(Integer)
 
 # Model untuk input manual (dari user)
 class SiswaManualModel(BaseModel):
