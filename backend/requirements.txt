@@ -2,7 +2,7 @@ fastapi
 uvicorn[standard]
 databases
 sqlalchemy
-joblib
+joblib==1.3.2
 pydantic
 aiofiles
 python-multipart
