@@ -470,21 +470,16 @@ function predictAllScores() {
             return;
         }
 
-        student.creativityPrediction = SimpleMLModel.predictCreativity(
-            features.projectComplexity,
-            features.solutionInnovation,
-            features.presentationScore
-        );
-
-        student.problemSolvingPrediction = SimpleMLModel.predictProblemSolving(
-            features.debuggingAbility,
-            features.implementationQuality
-        );
+        student.predictions = {
+            creativity: Math.round(mlModel.predictCreativity(features)),
+            problemSolving: Math.round(mlModel.predictProblemSolving(features))
+        };
     });
 
     mainDashboard.updateChart();
     mainDashboard.updateStatistics();
 }
+
 
 
 // Google Form Management
