@@ -437,6 +437,8 @@
                         <option value="X TKJ 3">X TKJ 3</option>
                         <option value="XI TKJ 1">XI TKJ 1</option>
                         <option value="XI TKJ 2">XI TKJ 2</option>
+                        <option value="XII TKJ 1">XII TKJ 2</option>
+                        <option value="XII TKJ 2">XII TKJ 2</option>
                     </select>
                 </div>
                 
@@ -516,10 +518,21 @@
         // Sample data untuk demo
         let studentsData = [];
 
+        let siswaDataGlobal = [];
+
+fetch("https://evaluasi-ai-production.up.railway.app/siswa")
+  .then((response) => response.json())
+  .then((result) => {
+    siswaDataGlobal = result;
+    console.log("HASIL FETCH:", result);
+  });
+
+
 document.addEventListener("DOMContentLoaded", async () => {
     try {
         const res = await fetch("https://evaluasi-ai-production.up.railway.app/siswa");
         const result = await res.json();
+        console.log("HASIL FETCH:", result);
 
         studentsData = result.map((item, idx) => ({
             id: item.id || idx + 1,
@@ -538,9 +551,9 @@ document.addEventListener("DOMContentLoaded", async () => {
             kesulitan_terbesar: item.feedback?.refleksi?.kesulitan || "",
             pembelajaran: item.feedback?.refleksi?.pembelajaran || "",
             saran: item.feedback?.refleksi?.saran || "",
-            kualitas_kabel: "Tidak Tersedia",  // Jika tidak ada di DB
-            uji_koneksi: "Tidak Tersedia",     // Jika tidak ada di DB
-            kemampuan_menjelaskan: 0,          // Default jika tidak disimpan
+            jumlah_percobaan: item.features?.jumlahPercobaan || 'Tidak Diisi',
+            waktu_debugging: item.features?.waktuDebugging || 'Tidak Diisi',
+            kemampuan_menjelaskan: item.features?.kemampuan_menjelaskan || 0,
             nilai_kreativitas_manual: item.predictions?.creativity || null,
             nilai_problemsolving_manual: item.predictions?.problemSolving || null
         }));
