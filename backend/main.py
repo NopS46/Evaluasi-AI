@@ -54,11 +54,19 @@ async def submit_form(data: SiswaFormModel):
         "kelas": data.kelas,
         "email": data.email,
         "features": {
-            "projectComplexity": data.kesulitan_straight,
-            "solutionInnovation": data.kesulitan_cross,
-            "implementationQuality": data.kreativitas_solusi,
-            "debuggingAbility": data.kerapian,
-            "presentationScore": data.pendekatan_sistematis
+            
+                "projectComplexity": data.kesulitan_straight,
+                "solutionInnovation": data.kesulitan_cross,
+                "implementationQuality": data.kreativitas_solusi,
+                "debuggingAbility": data.kerapian,
+                "presentationScore": data.pendekatan_sistematis,
+                "jumlahPercobaan": data.jumlah_percobaan,
+                "waktuDebugging": data.waktu_debugging,
+                "kemampuan_menjelaskan": data.kemampuan_menjelaskan,
+                "kualitas_kabel": data.kualitas_kabel,
+                "uji_koneksi": data.uji_koneksi
+                
+
         },
         "predictions": {
             "creativity": round(creativity, 2),
