@@ -470,15 +470,21 @@ function predictAllScores() {
             return;
         }
 
+        // Prediksi dan ubah ke skala 1–100
+        const creativityScore = mlModel.predictCreativity(features) * 10;
+        const problemSolvingScore = mlModel.predictProblemSolving(features) * 10;
+
         student.predictions = {
-            creativity: Math.round(mlModel.predictCreativity(features)),
-            problemSolving: Math.round(mlModel.predictProblemSolving(features))
+            creativity: Math.round(creativityScore),
+            problemSolving: Math.round(problemSolvingScore)
         };
     });
 
+    alert("✅ Semua prediksi berhasil dihitung dalam skala 1–100");
     mainDashboard.updateChart();
     mainDashboard.updateStatistics();
 }
+
 
 
 
