@@ -457,25 +457,28 @@ function predictAllScores() {
     }
 
     students.forEach((student, index) => {
+        const features = student.features || {};
+
         if (
-            student == null ||
-            student.projectComplexity == null ||
-            student.solutionInnovation == null ||
-            student.presentationScore == null
+            features.projectComplexity == null ||
+            features.solutionInnovation == null ||
+            features.presentationScore == null ||
+            features.debuggingAbility == null ||
+            features.implementationQuality == null
         ) {
             console.warn(`⛔ Data tidak lengkap di siswa ke-${index}:`, student);
             return;
         }
 
         student.creativityPrediction = SimpleMLModel.predictCreativity(
-            student.projectComplexity,
-            student.solutionInnovation,
-            student.presentationScore
+            features.projectComplexity,
+            features.solutionInnovation,
+            features.presentationScore
         );
 
         student.problemSolvingPrediction = SimpleMLModel.predictProblemSolving(
-            student.debuggingAbility,
-            student.implementationQuality
+            features.debuggingAbility,
+            features.implementationQuality
         );
     });
 
