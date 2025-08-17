@@ -471,8 +471,8 @@ function predictAllScores() {
         }
 
         // Prediksi dan ubah ke skala 1–100
-        const creativityScore = mlModel.predictCreativity(features) * 10;
-        const problemSolvingScore = mlModel.predictProblemSolving(features) * 10;
+        const creativityScore = mlModel.predictCreativity(features);
+        const problemSolvingScore = mlModel.predictProblemSolving(features);
 
         student.predictions = {
             creativity: Math.round(creativityScore),
